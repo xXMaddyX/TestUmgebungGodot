@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://j5ktqc71iceu"]
+
+[ext_resource type="Texture2D" uid="uid://bpqong7jmlgo" path="res://Assets/Village Probs 2.3/TX Village Props.png" id="1_6h6j3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5x8gl"]
+radius = 16.0312
+
+[node name="Rad" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6h6j3")
+region_enabled = true
+region_rect = Rect2(127.595, 287.728, 32.8355, 32.5681)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5x8gl")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvdqofmuvlplf"]
+
+[ext_resource type="Script" path="res://TestObjekts/TestPlayer/arrow/Arrow.gd" id="1_mpym5"]
+[ext_resource type="Texture2D" uid="uid://cv6wqkyc3grjn" path="res://Assets/TestPlayer/Elementals_Leaf_ranger_Free_v1.0/Elementals_Leaf_ranger_Free_v1.0/animations/spritesheets/projectiles_and_effects_256x128_SpriteSheet.png" id="1_wqjk1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0yfgo"]
+radius = 1.0
+
+[node name="Arrow" type="CharacterBody2D"]
+z_index = -1
+script = ExtResource("1_mpym5")
+
+[node name="ArrowSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_wqjk1")
+region_enabled = true
+region_rect = Rect2(111.187, 61.3502, 33.6476, 4.32419)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0yfgo")

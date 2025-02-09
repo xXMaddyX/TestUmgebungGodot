@@ -1,0 +1,207 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1criqfm7xjay"]
+
+[ext_resource type="Script" path="res://TestObjekts/Bridge/Bridge.gd" id="1_212wk"]
+[ext_resource type="Texture2D" uid="uid://bpqong7jmlgo" path="res://Assets/Village Probs 2.3/TX Village Props.png" id="1_if570"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66sq7"]
+size = Vector2(205, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eje0l"]
+size = Vector2(195, 6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdwqy"]
+radius = 24.3311
+
+[sub_resource type="Animation" id="Animation_hns0m"]
+resource_name = "BridgeClose"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightBridgePart:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0472, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftBridgePart:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.0472, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pmqnq"]
+resource_name = "LeverActivate"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lever/LeverSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.698132]
+}
+
+[sub_resource type="Animation" id="Animation_oc438"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightBridgePart:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0472]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftBridgePart:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0472]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lever/LeverSprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ypgc"]
+_data = {
+"BridgeClose": SubResource("Animation_hns0m"),
+"LeverActivate": SubResource("Animation_pmqnq"),
+"RESET": SubResource("Animation_oc438")
+}
+
+[node name="Bridge" type="Node2D"]
+script = ExtResource("1_212wk")
+
+[node name="RightBridgePart" type="StaticBody2D" parent="."]
+position = Vector2(205, 0)
+rotation = 1.0472
+
+[node name="RightBridgeSprite" type="Sprite2D" parent="RightBridgePart"]
+position = Vector2(-140, 0)
+texture = ExtResource("1_if570")
+region_enabled = true
+region_rect = Rect2(31.5976, 786.252, 130.029, 8.81305)
+
+[node name="RightBridgeSprite2" type="Sprite2D" parent="RightBridgePart"]
+position = Vector2(-65, 0)
+texture = ExtResource("1_if570")
+region_enabled = true
+region_rect = Rect2(31.5976, 786.252, 130.029, 8.81305)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBridgePart"]
+position = Vector2(-102, 0)
+shape = SubResource("RectangleShape2D_66sq7")
+
+[node name="LeftBridgePart" type="StaticBody2D" parent="."]
+position = Vector2(-194, 0)
+rotation = -1.0472
+
+[node name="LeftBridgeSprite" type="Sprite2D" parent="LeftBridgePart"]
+position = Vector2(129, 0)
+texture = ExtResource("1_if570")
+region_enabled = true
+region_rect = Rect2(31.1202, 786.041, 129.032, 9.21661)
+
+[node name="LeftBridgeSprite2" type="Sprite2D" parent="LeftBridgePart"]
+position = Vector2(64, 0)
+texture = ExtResource("1_if570")
+region_enabled = true
+region_rect = Rect2(31.1202, 786.041, 129.032, 9.21661)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBridgePart"]
+position = Vector2(96, 0)
+shape = SubResource("RectangleShape2D_eje0l")
+
+[node name="BridgeBase" type="Node2D" parent="."]
+
+[node name="BasicElement" type="Sprite2D" parent="BridgeBase"]
+position = Vector2(200, 0)
+rotation = 1.5708
+texture = ExtResource("1_if570")
+region_enabled = true
+region_rect = Rect2(155.34, 393.611, 105.27, 28.4527)
+
+[node name="BasicElement2" type="Sprite2D" parent="BridgeBase"]
+position = Vector2(-200, 0)
+rotation = 1.5708
+texture = ExtResource("1_if570")
+region_enabled = true
+region_rect = Rect2(155.34, 393.611, 105.27, 28.4527)
+
+[node name="BasicElement3" type="Sprite2D" parent="BridgeBase"]
+position = Vector2(-187, 0)
+rotation = 1.5708
+texture = ExtResource("1_if570")
+region_enabled = true
+region_rect = Rect2(155.34, 393.611, 105.27, 28.4527)
+
+[node name="BasicElement4" type="Sprite2D" parent="BridgeBase"]
+position = Vector2(212, 0)
+rotation = 1.5708
+texture = ExtResource("1_if570")
+region_enabled = true
+region_rect = Rect2(155.34, 393.611, 105.27, 28.4527)
+
+[node name="Lever" type="Node2D" parent="."]
+position = Vector2(0, 2)
+
+[node name="LeverSprite" type="Sprite2D" parent="Lever"]
+position = Vector2(-343, 21)
+texture = ExtResource("1_if570")
+offset = Vector2(0, -10)
+region_enabled = true
+region_rect = Rect2(652.296, 36.4057, 9.1889, 24.7791)
+
+[node name="LeverBase" type="Sprite2D" parent="Lever"]
+position = Vector2(-343, 30)
+texture = ExtResource("1_if570")
+region_enabled = true
+region_rect = Rect2(799.759, 164.132, 33.8865, 28.2423)
+
+[node name="LeverTrigger" type="Area2D" parent="Lever"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever/LeverTrigger"]
+position = Vector2(-343, 20)
+shape = SubResource("CircleShape2D_qdwqy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1ypgc")
+}
+
+[connection signal="body_entered" from="Lever/LeverTrigger" to="." method="_on_lever_trigger_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
