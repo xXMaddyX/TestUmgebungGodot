@@ -8,14 +8,17 @@ var pushForce = 100
 var isInAir = true
 var rotationForce = 0.08
 
+var isShotFromAir = false
+
 @onready var arrow_sprite = $ArrowSprite
 @onready var collision_shape_2d = $CollisionShape2D
 
 func _ready():
 	pass
 	
-func setDirection(directionIn):
+func setDirection(directionIn, shotFromAir):
 	direction = directionIn
+	isShotFromAir = shotFromAir
 	
 func stopAfterCollide():
 	velocity = Vector2(0, 0)
@@ -33,6 +36,15 @@ func moveHandler(delta):
 	elif velocity.x < 0:
 		rotation = rotation - delta * rotationForce
 		
+func isAirShotHandler(delta):
+	if direction == 1:
+		velocity.x = direction * SPEED / 1.2
+		rotation_degrees = +45
+	elif direction == -1:
+		velocity.x = direction * SPEED / 1.2
+		rotation_degrees = -45
+	velocity.y = SPEED / 1.2
+		
 func reparentArrow(body, position: Vector2):
 	global_position = position
 	reparent(body)
@@ -43,7 +55,11 @@ func reparentArrow(body, position: Vector2):
 
 func _physics_process(delta):
 	if isInAir:
-		moveHandler(delta)
+		if !isShotFromAir:
+			moveHandler(delta)
+		if isShotFromAir:
+			isAirShotHandler(delta)
+			
 	flipHandler()
 	if !isCollidet:
 		var collider = move_and_collide(velocity)

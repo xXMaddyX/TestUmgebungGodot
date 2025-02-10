@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://dqd1kigdio7rn"]
+[gd_scene load_steps=56 format=3 uid="uid://dqd1kigdio7rn"]
 
 [ext_resource type="Script" path="res://TestObjekts/TestPlayer/Player.gd" id="1_6jx03"]
 [ext_resource type="Texture2D" uid="uid://bsmin54nm8vw1" path="res://Assets/TestPlayer/Elementals_Leaf_ranger_Free_v1.0/Elementals_Leaf_ranger_Free_v1.0/animations/spritesheets/Elementals_leaf_ranger_288x128_SpriteSheet.png" id="1_kqsqg"]
@@ -348,84 +348,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gcrl6"]
-atlas = ExtResource("1_kqsqg")
-region = Rect2(0, 896, 288, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_erhnr"]
-atlas = ExtResource("1_kqsqg")
-region = Rect2(288, 896, 288, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vuhgx"]
-atlas = ExtResource("1_kqsqg")
-region = Rect2(576, 896, 288, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rx423"]
-atlas = ExtResource("1_kqsqg")
-region = Rect2(864, 896, 288, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yfthy"]
-atlas = ExtResource("1_kqsqg")
-region = Rect2(1152, 896, 288, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8xvnf"]
-atlas = ExtResource("1_kqsqg")
-region = Rect2(1440, 896, 288, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4wjp5"]
-atlas = ExtResource("1_kqsqg")
-region = Rect2(1728, 896, 288, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ifgrr"]
-atlas = ExtResource("1_kqsqg")
-region = Rect2(2016, 896, 288, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sq6ad"]
-atlas = ExtResource("1_kqsqg")
-region = Rect2(2304, 896, 288, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vo88o"]
-atlas = ExtResource("1_kqsqg")
-region = Rect2(2592, 896, 288, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ihpyc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gcrl6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_erhnr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vuhgx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rx423")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yfthy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8xvnf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4wjp5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ifgrr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sq6ad")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vo88o")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.2, 1.2)
 collision_layer = 3
@@ -463,9 +385,5 @@ sprite_frames = SubResource("SpriteFrames_608kr")
 [node name="JumpDown" type="AnimatedSprite2D" parent="PlayerAnims"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_dnwqi")
-
-[node name="ShotInAir" type="AnimatedSprite2D" parent="PlayerAnims"]
-visible = false
-sprite_frames = SubResource("SpriteFrames_ihpyc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
